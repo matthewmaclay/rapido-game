@@ -1,6 +1,6 @@
 ## Реализация
 
-<https://github.com>
+<https://rapido-game.herokuapp.com/>
 
 ## Запуск проекта
 

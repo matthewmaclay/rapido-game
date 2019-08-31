@@ -49,6 +49,7 @@ const Wrapper = styled.div`
       case isChoosen:
         style = `
           background: ${rest.theme.colors.yellow};
+          border: 2px solid white !important;
         `;
         break;
       default:

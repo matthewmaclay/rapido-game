@@ -2,6 +2,7 @@ import App from "next/app";
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import { createGlobalStyle } from "styled-components";
+import Head from "next/head";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
@@ -60,6 +61,18 @@ export default class MyApp extends App {
     return (
       <ThemeProvider theme={theme}>
         <>
+          <Head>
+            <title>Rapido Game</title>
+            <link
+              rel="shortcut icon"
+              type="image/png"
+              href="/static/favicon.ico"
+            />
+            <meta
+              name="viewport"
+              content="initial-scale=1.0, width=device-width"
+            />
+          </Head>
           <GlobalStyle />
           <Component {...pageProps} />
         </>

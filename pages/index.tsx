@@ -109,6 +109,8 @@ export default class Index extends Component<Props, State> {
     );
     if (showNotification && victory) {
       toast.success("ПОЗДРАВЛЯЕМ, ВЫ ВЫИГРАЛИ НИЧЕГО");
+    } else if (showNotification && !victory) {
+      toast.info("Вы ничего не выиграли, попытайте удачу в следующий раз");
     }
     return victory;
   };

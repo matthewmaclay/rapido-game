@@ -149,7 +149,9 @@ export default class Index extends Component<Props, State> {
   isValidate = () => {
     if (
       this.state.firstRowValues.length == this.requiredInFirstRow &&
-      this.state.firstRowValues.length == this.requiredInFirstRow
+      this.state.firstRowValues.length == this.requiredInFirstRow &&
+      this.state.secondRowValues.length == this.requiredInSecondRow &&
+      this.state.secondRowValues.length == this.requiredInSecondRow
     ) {
       return true;
     }

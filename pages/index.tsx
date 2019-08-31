@@ -175,7 +175,7 @@ export default class Index extends Component<Props, State> {
   };
 
   render() {
-    const firstRow = Array(this.amountInFirstRow)
+    const firstField = Array(this.amountInFirstRow)
       .fill(1)
       .map((_, index) => (
         <Number
@@ -192,7 +192,7 @@ export default class Index extends Component<Props, State> {
         />
       ));
 
-    const secondRow = Array(this.amountInSecondRow)
+    const secondField = Array(this.amountInSecondRow)
       .fill(1)
       .map((_, index) => (
         <Number
@@ -215,10 +215,10 @@ export default class Index extends Component<Props, State> {
           <MagicWand onClick={this.randomize} />
         </Header>
         <Section title={1} amount={this.requiredInFirstRow}>
-          <>{firstRow}</>
+          <>{firstField}</>
         </Section>
         <Section title={2} amount={this.requiredInSecondRow}>
-          <>{secondRow}</>
+          <>{secondField}</>
         </Section>
         <Submitbutton onClick={this.showAnswers}>
           <div>Показать результаты</div>

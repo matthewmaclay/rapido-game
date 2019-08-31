@@ -36,7 +36,7 @@ export default class Index extends Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this.amountInFirstRow = 18;
+    this.amountInFirstRow = 19;
     this.amountInSecondRow = 2;
     this.requiredInFirstRow = 8;
     this.requiredInSecondRow = 1;

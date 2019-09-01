@@ -75,7 +75,8 @@ export default class Index extends Component<Props, State> {
           )
         ) {
           this.setState({
-            firstRowValues: xor(this.state.firstRowValues, [value])
+            firstRowValues: xor(this.state.firstRowValues, [value]),
+            showAnswer: false
           });
         } else {
           toast(`Ну хватит, куда уже больше?`);
@@ -91,7 +92,8 @@ export default class Index extends Component<Props, State> {
           )
         ) {
           this.setState({
-            secondRowValues: xor(this.state.secondRowValues, [value])
+            secondRowValues: xor(this.state.secondRowValues, [value]),
+            showAnswer: false
           });
         } else {
           toast(`Здесь необходимо выбрать только одно число`);

@@ -2,6 +2,7 @@ import App from "next/app";
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import { createGlobalStyle } from "styled-components";
+import ReactGA from "react-ga";
 import Head from "next/head";
 
 const GlobalStyle = createGlobalStyle`
@@ -56,6 +57,10 @@ const theme: ThemeType = {
 };
 
 export default class MyApp extends App {
+  componentDidMount() {
+    ReactGA.initialize("UA-139945630-2");
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }
   render() {
     const { Component, pageProps } = this.props;
     return (

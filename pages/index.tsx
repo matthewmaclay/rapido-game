@@ -2,6 +2,7 @@ import React, { Component } from "react"; // let's also import Component
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { xor } from "lodash";
+import ReactGA from "react-ga";
 import axios from "axios";
 
 import Number from "../components/Number";
@@ -60,6 +61,10 @@ export default class Index extends Component<Props, State> {
     keyState: "firstRowValues" | "secondRowValues",
     value: number
   ): void => {
+    ReactGA.event({
+      category: "Number",
+      action: "Click"
+    });
     switch (keyState) {
       case "firstRowValues":
         if (
@@ -109,7 +114,15 @@ export default class Index extends Component<Props, State> {
     );
     if (showNotification && victory) {
       toast.success("ПОЗДРАВЛЯЕМ, ВЫ ВЫИГРАЛИ НИЧЕГО");
+      ReactGA.event({
+        category: "End game",
+        action: "Victory"
+      });
     } else if (showNotification && !victory) {
+      ReactGA.event({
+        category: "End game",
+        action: "Lose"
+      });
       toast.info("Вы ничего не выиграли, попытайте удачу в следующий раз");
     }
     return victory;
@@ -129,6 +142,10 @@ export default class Index extends Component<Props, State> {
       toast.error(`Ошибка на стороне сервера`);
       return null;
     }
+    ReactGA.event({
+      category: "Send to server",
+      action: ""
+    });
     axios
       .post("/finch-test", {
         selectedNumber: {
@@ -166,6 +183,10 @@ export default class Index extends Component<Props, State> {
 
   // Заполнение полей случайными данными
   randomize = (): void => {
+    ReactGA.event({
+      category: "Randomize",
+      action: "Click"
+    });
     this.setState({
       showAnswer: false,
       firstRowValues: generate(this.requiredInFirstRow, this.amountInFirstRow),
